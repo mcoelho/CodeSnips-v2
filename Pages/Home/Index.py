@@ -1,7 +1,6 @@
 #!/local/bin/python
 
 import sys
-
 import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 
@@ -12,6 +11,14 @@ print "Content-type: text/html\n"
     
 print "<html><head></head><body>"
     
-print "<h1>Home Page:</h1><ul>"
+print "<h1>Comments:</h1><ul>"
+if 'comment' in args:
+    print "<li>%s</li>" % args['comment']
+print "</ul>"
+
+print '''<form action="%s" method="get">
+<input type="text" name="comment">
+<input type="submit" value="Add comment">
+</form>''' % sys.argv[0]
 
 print "</body></html>"
