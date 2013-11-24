@@ -13,7 +13,7 @@ print "Content-type: text/html\n"
     
 print "<html><head></head><body>"
     
-print "<h1>Database Setup</h1><ul>"
+print "<h1>Database Setup</h1>"
 
 if 'administrator' in args:
 	if args['administrator'] == 'admin123':
