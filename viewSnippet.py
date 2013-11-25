@@ -11,7 +11,7 @@ args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
 print "Content-type: text/html\n"
     
-print "<html><head><link href='style.css' rel = 'stylesheet' type = 'text/css' media='all'/></head><body>"
+print "<html><head><link href='Media/style.css' rel = 'stylesheet' type = 'text/css' media='all'/></head><body>"
 
 
 print "<div id = 'main'>"
