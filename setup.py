@@ -17,7 +17,7 @@ print "<h1>Database Setup</h1>"
 
 if 'administrator' in args:
 	if args['administrator'] == 'admin123':
-		conn = sqlite3.connect('codesnips.db')
+		conn = sqlite3.connect('data/codesnips.db')
 
 		c = conn.cursor()
 

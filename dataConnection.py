@@ -4,7 +4,7 @@ import cgi
 import cgitb; cgitb.enable()
 import sqlite3
 
-con = sqlite3.connect('codesnips.db')
+con = sqlite3.connect('data/codesnips.db')
 
 def addToDatabase(table, columns, values):
 	with con:
