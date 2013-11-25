@@ -15,12 +15,20 @@ print "Content-type: text/html\n"
 print "<html><head></head><body>"
     
 print "<h1>Database Test</h1>"
+cmd = commands.DeleteFromDatabaseCommand("USER", "password='password'")
+cmd.execute()
+
 for command in cmdlist:
 	command.execute()
 
 cmd = commands.ReadFromDatabaseCommand("User")
 rows = cmd.execute()
 
+for row in rows:
+	print "<p>" + row['name'] + " " + row['email'] + " " + row['password'] + "</p>"
+
+cmd = commands.ReadFromDatabaseCommand("USER", "email='mcoelho@northrock.bm'")
+rows = cmd.execute()
 for row in rows:
 	print "<p>" + row['name'] + " " + row['email'] + " " + row['password'] + "</p>"
 
