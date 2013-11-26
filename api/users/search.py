@@ -6,7 +6,7 @@ import cgitb; cgitb.enable()
 pkg = "~/public_html/oop/codesnips"
 sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
 from codesnips.data import dbCommands
-from codesnips.models import user
+from codesnips.models.User import *
 pkg = "~/public_html/oop/jsonpickle"
 sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
 import jsonpickle
@@ -22,7 +22,7 @@ if "id" in args:
 
 	if(rows != None and rows[0] != None):
 		row = rows[0]
-		u = user.User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+		u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
 		print jsonpickle.encode(u)
 
 elif "permissions" in args:
@@ -32,7 +32,7 @@ elif "permissions" in args:
 	if(rows != None):
 		result = []
 		for row in rows:
-			u = user.User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+			u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
 			result.append(u)
 		print jsonpickle.encode(result)
 
@@ -43,6 +43,6 @@ else:
 	if(rows != None):
 		result = []
 		for row in rows:
-			u = user.User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+			u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
 			result.append(u)
 		print jsonpickle.encode(result)
