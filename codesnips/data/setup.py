@@ -28,7 +28,7 @@ if 'administrator' in args:
 		c.execute("DROP TABLE IF EXISTS RevisionRequest")
 		c.execute("DROP TABLE IF EXISTS UserHistory")
 
-		c.execute('''CREATE TABLE "Language" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "name" TEXT NOT NULL, "version" TEXT NOT NULL, "category" TEXT NOT NULL, "description" TEXT, "deprecatedKeywords" TEXT)''')
+		#c.execute('''CREATE TABLE "Language" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "name" TEXT NOT NULL, "version" TEXT NOT NULL, "category" TEXT NOT NULL, "description" TEXT, "deprecatedKeywords" TEXT)''')
 		c.execute('''CREATE TABLE "User" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "userHistory" INTEGER REFERENCES "UserHistory" ("id") ON DELETE CASCADE ON UPDATE CASCADE, "name" TEXT NOT NULL, "email" TEXT NOT NULL UNIQUE, "password" TEXT, "dob" TEXT, "bio" TEXT, "specialization" TEXT, "gravatarLink" TEXT, "favorites" TEXT, "permissions" INTEGER NOT NULL DEFAULT 0)''')
 		c.execute('''CREATE TABLE "Snippet" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "user" INTEGER NOT NULL, "language" INTEGER NOT NULL REFERENCES "Language" ("id"), "name" TEXT NOT NULL, "description" TEXT NOT NULL, "code" TEXT NOT NULL)''')
 		c.execute('''CREATE TABLE "Comment" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "userId" INTEGER NOT NULL REFERENCES "User" ("id"), "snippetId" INTEGER NOT NULL DEFAULT 0 REFERENCES "Snippet" ("id"), "message" TEXT, "upvotes" INTEGER NOT NULL DEFAULT 0, "downvotes" INTEGER NOT NULL DEFAULT 0, "lastChanged" TEXT)''')
