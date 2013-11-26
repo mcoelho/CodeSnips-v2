@@ -2,9 +2,9 @@
 
 import cgi
 import cgitb; cgitb.enable()
-import sqlite3
+import sqlite3, os
 
-con = sqlite3.connect('data/codesnips.db')
+con = sqlite3.connect(os.path.dirname(os.path.expanduser("~/public_html/oop/codesnips/data/"))+'codesnips.db')
 
 def addToDatabase(table, columns, values):
 	with con:

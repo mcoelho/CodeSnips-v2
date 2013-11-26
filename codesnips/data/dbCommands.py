@@ -2,7 +2,7 @@
 
 import cgi
 import cgitb; cgitb.enable()
-import dataConnection
+import dbConnection
 
 class AddToDatabaseCommand:
     def __init__(self, table, columns, values):
@@ -14,7 +14,7 @@ class AddToDatabaseCommand:
         self()
 
     def __call__(self):
-    	dataConnection.addToDatabase(self.table, self.columns, self.values)
+    	dbConnection.addToDatabase(self.table, self.columns, self.values)
 
 class ReadFromDatabaseCommand:
     def __init__(self, table, where=''):
@@ -25,7 +25,7 @@ class ReadFromDatabaseCommand:
         return self()
 
     def __call__(self):
-    	return dataConnection.readFromDatabase(self.table, self.where)
+    	return dbConnection.readFromDatabase(self.table, self.where)
 
 class UpdateOnDatabaseCommand:
     def __init__(self, table, dataToChange, where):
@@ -37,7 +37,7 @@ class UpdateOnDatabaseCommand:
         self()
 
     def __call__(self):
-    	dataConnection.updateOnDatabase(self.table, self.dataToChange, self.where)
+    	dbConnection.updateOnDatabase(self.table, self.dataToChange, self.where)
 
 class DeleteFromDatabaseCommand:
     def __init__(self, table, where):
@@ -48,4 +48,4 @@ class DeleteFromDatabaseCommand:
         self()
 
     def __call__(self):
-    	dataConnection.deleteFromDatabase(self.table, self.where)
+    	dbConnection.deleteFromDatabase(self.table, self.where)

@@ -17,7 +17,7 @@ print "<h1>Database Setup</h1>"
 
 if 'administrator' in args:
 	if args['administrator'] == 'admin123':
-		conn = sqlite3.connect('data/codesnips.db')
+		conn = sqlite3.connect(os.path.dirname(os.path.expanduser("~/public_html/oop/codesnips/data/"))+'codesnips.db')
 
 		c = conn.cursor()
 
@@ -35,11 +35,8 @@ if 'administrator' in args:
 		c.execute('''CREATE TABLE "RevisionRequest" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "snippetId" INTEGER NOT NULL REFERENCES "Snippet" ("id"), "userId" INTEGER NOT NULL REFERENCES "User" ("id"), "description" TEXT NOT NULL, "dateSent" TEXT, "code" TEXT)''')
 		c.execute('''CREATE TABLE "UserHistory" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "userId" INTEGER NOT NULL REFERENCES "User" ("id"), "posts" TEXT, "comments" TEXT, "recentlyViewed" TEXT, "timeFrame" INTEGER, "timeFromNow" TEXT)''')
 
-		# Save (commit) the changes
 		conn.commit()
 
-		# We can also close the connection if we are done with it.
-		# Just be sure any changes have been committed or they will be lost.
 		conn.close()
 		print "<p style='color:green'><strong>Database created sucessfully!</strong></p>"
 	else:
