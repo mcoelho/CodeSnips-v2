@@ -20,8 +20,18 @@ print "<div id = 'container'>"
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
 
-print "<h1>View Snippets</h1>"
+print "<h1>New Snippet</h1>"
 print "<hr />"
+
+print "<form name='snippetInput' action='push.py' method='post'>"
+
+print "Snippet Title: <input type='text' name='snippetTitle'><br>"
+print "Snippet Description: <input type='text' name='snippetDesc'><br>"
+print "Snippet Language: <input type='text' name='snippetLang'><br>"
+print "Code: <input type='textarea' name='snippetCode'><br>"
+print "<input type='submit' value='Submit'>"
+
+print "</form>"
 
 print "<br />"
 
