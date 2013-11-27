@@ -26,6 +26,8 @@ print "<ul>"
 print "<li><a href=#>Home</a></li>"
 print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
 print "<li><a href=#>Create Snippet</a></li>"
+print "<li><a href=#>View Langauges</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in/Log-out</a></li>"
 print "</ul>" 
 print "</div>"
 
