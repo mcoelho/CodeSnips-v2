@@ -23,7 +23,7 @@ print "<div id = 'mainbody'>"
 print "<h1>New Snippet</h1>"
 print "<hr />"
 
-print "<form name='snippetInput' action='push.py' method='post'>"
+print "<form name='snippetInput' action='process.py' method='post'>"
 
 print "Snippet Title: <input type='text' name='snippetTitle'><br>"
 print "Snippet Description: <input type='text' name='snippetDesc'><br>"
