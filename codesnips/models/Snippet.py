@@ -2,7 +2,7 @@ import Post
 
 
 class Snippet(Post):
-	def __init__(self, id, userId, upvotes, downvotes, lastChanged, title, revisionRequest, description, code, language):
+	def __init__(self, id, userId, upvotes, downvotes, lastChanged, title, revisionRequest, description, code, language, version):
 		Post.__init__(self, id, userId, upvotes, downvotes, lastChanged)
 		self.id = id
 		self.title = title
@@ -10,3 +10,4 @@ class Snippet(Post):
 		self.description = description
 		self.code = code
 		self.language = language
+		self.version = version
