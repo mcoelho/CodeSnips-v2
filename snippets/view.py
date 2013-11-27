@@ -31,14 +31,9 @@ print "<h1>View Snippets</h1>"
 print "<hr />"
 
 for row in rows:
-	print "<h2>Snippet Title:</h2>"
-	print "<p>" + row['title'] + "</p><br>"
-	print "<h2>Snippet Description</h2>"
-	print "<p>" + row['description'] + "</p><br>"
+	print "<a href='details.py?id="+ str(row['id'])+"'>" + str(row['title']) + "</a><br>"
 	print "<h2>Langauge and Version</h2>"
 	print "<p>" + row['language'] + " " + row['version'] + "</p><br>"
-	print "<h2>Code</h2>"
-	print "<code>" + row['code'] + "</code><br><hr />" 
 
 print "<br />"
 
