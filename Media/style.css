@@ -88,3 +88,36 @@ h2{
 #navblock ul li a:hover{
 	color: black
 }
+
+#buttons a{
+	text-decoration: none;
+	padding: .2em 1em;
+	color: darkgrey;
+	background-color: white;
+	border-right-style: solid;
+	border-right-color: lightgrey;
+	border-right-width: 1px;
+}
+
+#buttons a:hover{
+	color: black;
+	background-color: lightgrey;
+}
+
+.button{
+	text-decoration: none;
+	padding: .2em 1em;
+	color: darkgrey;
+	background-color: white;
+	border-right-style: solid;
+	border-right-color: lightgrey;
+	border-right-width: 1px;
+	border-left-style: solid;
+	border-left-color: lightgrey;
+	border-left-width: 1px;
+}
+
+.button:hover{
+	color: black;
+	background-color: lightgrey;
+}

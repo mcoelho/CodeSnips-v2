@@ -27,10 +27,23 @@ if any(rows):
 	print "<div id = 'container'>"
 
 	#put all html code inside mainbody
-	print "<div id = 'mainbody'>" 
+	print "<div id = 'mainbody'>"
 
-	print "<h1>View Snippets</h1>"
-	print "<hr />"
+	print "<img src='../Media/logo.gif' alt='logo'>"
+
+	print "<div id = 'navblock'>"
+	print "<ul>"
+	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py>Home</a></li>"
+	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
+	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py>Create Snippet</a></li>"
+	print "<li><a href=#>View Langauges</a></li>"
+	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in/Log-out</a></li>"
+	print "</ul>" 
+	print "</div>"
+
+	print "<hr />" 
+
+	print "<h2>Snippet Details</h2>"
 
 	print "<h2>Snippet Title:</h2>"
 	print "<p>" + row['title'] + "</p><br>"
@@ -40,11 +53,13 @@ if any(rows):
 	print "<p>" + row['language'] + " " + row['version'] + "</p><br>"
 	print "<h2>Code</h2>"
 	print "<code>" + row['code'] + "</code><br><hr />"
+	print "<div id = buttons>"
 	print "<a href='edit.py?id="+str(row['id'])+"'>Edit snippet</a> | <a href='upvote.py?id="+str(row['id'])+ "&votes=" + str(row['upvotes']) + "'>" + str(row['upvotes']) + " - Upvote Snippet</a> | <a href='downvote.py?id="+str(row['id'])+"&votes=" + str(row['downvotes']) + "'>" + str(row['downvotes']) + " - Downvote Snippet</a>"
 	print "<br />"
 
 	print "<h2>Comments</h2>"
 	print "<a href=comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"
+	print "</div>"
 	print "</div>"
 	#put all html code above this hashtag (unless you don't want it in the main body)
 	print "</div>"

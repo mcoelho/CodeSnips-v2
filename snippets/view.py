@@ -32,7 +32,7 @@ print "<img src='../Media/logo.gif' alt='logo'>"
 print "<div id = 'navblock'>"
 print "<ul>"
 print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py>Home</a></li>"
-print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
+print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
 print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py>Create Snippet</a></li>"
 print "<li><a href=#>View Langauges</a></li>"
 print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in/Log-out</a></li>"
@@ -44,9 +44,9 @@ print "<hr />"
 print "<h2>View Snippets</h2>"
 
 for row in rows:
-	print "<a href='details.py?id="+ str(row['id'])+"'>" + str(row['title']) + "</a><br>"
-	print "<h2>Langauge and Version</h2>"
-	print "<p>" + row['language'] + " " + row['version'] + "</p><br>"
+	print "<p>Snippet name: " + str(row['title']) + "</p>"
+	print "<p>Language and Version: " + row['language'] + " " + row['version'] + "</p>"
+	print "<a class='button' href='details.py?id="+ str(row['id'])+"'>Snippet Details</a><hr />"
 
 print "<br />"
 
