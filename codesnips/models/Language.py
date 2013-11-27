@@ -13,3 +13,10 @@ class Language(object):
         
     def createVersion(self):
         return 'Base class version'
+    
+    def view(self):
+        print "Language name: " + self.name
+        print "Creator: " + self.creator
+        print "Year introduced: " + self.yearIntroduced
+        print "Operating system: " + self.operatingSystem
+        print "Version: " + self.versionNumber
