@@ -7,9 +7,10 @@ class Language(object):
     count = 0
     listOfLanguages = ['JAVA', 'PHP', 'PYTHON']
     
-    def __init__(self):
+    def __init__(self, versionNumber=0):
         Language.count += 1
         self.version = self.createVersion()
+        self.versionNumber = self.versionNumber
         
     def createVersion(self):
         return 'Base class version'

@@ -14,6 +14,7 @@ class PythonLanguage(Language):
         self.creator = 'Guido van Rossum'
         self.yearIntroduced = '1991'
         self.operatingSystem = 'Cross-Platform'
+        self.versionNumber = self.versionNumber
         self.version = self.versionFactory(versionNumber)
     
     '''
