@@ -6,7 +6,8 @@ Created on 2013-11-26
 
 class Language(object):
     count = 0
-
+    listOfLanguages = ['JAVA', 'PHP', 'PYTHON']
+    
     def __init__(self):
         Language.count += 1
         
