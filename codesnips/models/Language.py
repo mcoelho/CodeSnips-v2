@@ -12,4 +12,4 @@ class Language(object):
         self.version = self.createVersion()
         
     def createVersion(self):
-        return 'No version
+        return 'Base class version'
