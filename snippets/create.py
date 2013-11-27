@@ -13,15 +13,25 @@ print "Content-type: text/html\n"
     
 print "<html><head><link href='../Media/style.css' rel = 'stylesheet' type = 'text/css' media='all'/></head><body>"
 
-
 print "<div id = 'main'>"
 print "<div id = 'container'>"
 
 #put all html code inside mainbody
-print "<div id = 'mainbody'>" 
+print "<div id = 'mainbody'>"
 
-print "<h1>New Snippet</h1>"
+print "<img src='../Media/logo.gif' alt='logo'>"
+
+print "<div id = 'navblock'>"
+print "<ul>"
+print "<li><a href=#>Home</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
+print "<li><a href=#>Create Snippet</a></li>"
+print "</ul>" 
+print "</div>"
+
 print "<hr />"
+
+print "<h2>New Snippet</h2>"
 
 print "<form name='snippetInput' action='process.py' method='post'>"
 

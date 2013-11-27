@@ -5,6 +5,11 @@ hr {
 	margin-top: 30px;
 }
 
+img {
+	display:block;
+	margin:auto;
+}
+
 #container {
 	width: 980px;
 	margin: 0 auto;
@@ -58,5 +63,28 @@ h2{
 	font-family:"Palatine Linotype", "Book Antique", Palatino, serif;
 }
 
-input.snippet{
+#navblock ul{
+	margin:0;
+	margin-bottom: -10px;
+	padding:0;
+	list-style-type: none;
+	text-align: center;
+}
+
+#navblock ul li{
+	display:inline;
+}
+
+#navblock ul li a{
+	text-decoration: none;
+	padding: .2em 1em;
+	color: darkgrey;
+	background-color: white;
+	border-right-style: solid;
+	border-right-color: lightgrey;
+	border-right-width: 1px;
+}
+
+#navblock ul li a:hover{
+	color: black
 }
