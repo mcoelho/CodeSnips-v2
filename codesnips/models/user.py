@@ -1,16 +1,4 @@
 class User(object):
-	# id
-	# userHistory
-	# name
-	# email
-	# password
-	# dob
-	# bio
-	# specialization
-	# gravatarLink
-	# favorites
-	# permissions
-
 	def __init__(self, id, userHistory,	name, email, password, dob, bio, specialization, gravatarLink, favorites, permissions):
 		self.id = id
 		self.userHistory = userHistory
