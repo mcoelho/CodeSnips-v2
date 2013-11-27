@@ -40,11 +40,11 @@ if any(rows):
 	print "<p>" + row['language'] + " " + row['version'] + "</p><br>"
 	print "<h2>Code</h2>"
 	print "<code>" + row['code'] + "</code><br><hr />"
-	print "<a href='edit.py?id="+row['id']+"'>Edit snippet</a> | <a href='upvote.py?id="+row['id']+"'>" + row['upvotes'] + " - Upvote Snippet</a> | <a href='downvote.py?id="+row['id']+"'>" + row['downvotes'] + " - Downvote Snippet</a>"
+	print "<a href='edit.py?id="+str(row['id'])+"'>Edit snippet</a> | <a href='upvote.py?id="+str(row['id'])+ "&votes=" + str(row['upvotes']) + "'>" + str(row['upvotes']) + " - Upvote Snippet</a> | <a href='downvote.py?id="+str(row['id'])+"&votes=" + str(row['downvotes']) + "'>" + str(row['downvotes']) + " - Downvote Snippet</a>"
 	print "<br />"
 
 	print "<h2>Comments</h2>"
-	print "<a href=comments/add.py?id="+row['id']+"'>Add Comment</a>"
+	print "<a href=comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"
 	print "</div>"
 	#put all html code above this hashtag (unless you don't want it in the main body)
 	print "</div>"
