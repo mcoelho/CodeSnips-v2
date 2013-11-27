@@ -20,29 +20,38 @@ if "id" in args:
 	cmd = dbCommands.ReadFromDatabaseCommand("User", "id='"+args['id']+"'")
 	rows = cmd.execute()
 
-	if(rows != None and rows[0] != None):
+	if(any(rows)):
 		row = rows[0]
 		u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+		print jsonpickle.encode(u)
+	else:
+		u = NullUser()
 		print jsonpickle.encode(u)
 
 elif "permissions" in args:
 	cmd = dbCommands.ReadFromDatabaseCommand("User", "permissions='"+args['permissions']+"'")
 	rows = cmd.execute()
 
-	if(rows != None):
+	if(any(rows)):
 		result = []
 		for row in rows:
 			u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
 			result.append(u)
 		print jsonpickle.encode(result)
+	else:
+		u = NullUser()
+		print jsonpickle.encode(u)
 
 else:
 	cmd = dbCommands.ReadFromDatabaseCommand("User")
 	rows = cmd.execute()
 
-	if(rows != None):
+	if(any(rows)):
 		result = []
 		for row in rows:
 			u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
 			result.append(u)
 		print jsonpickle.encode(result)
+	else:
+		u = NullUser()
+		print jsonpickle.encode(u)

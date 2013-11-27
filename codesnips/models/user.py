@@ -23,3 +23,8 @@ class User(object):
 		self.gravatarLink = gravatarLink
 		self.favorites = favorites
 		self.permissions = permissions
+
+class NullUser(object):
+	def __init__(self):
+		self.isNull = True
+		
