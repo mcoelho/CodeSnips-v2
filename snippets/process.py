@@ -18,3 +18,5 @@ snippetCode = form.getvalue('snippetCode')
 
 cmd = dbCommands.AddToDatabaseCommand("Snippet", "userId, language, version, title, description, code", "1, '" + str(snippetLang) + "', '" + str(snippetVersion) + "', '" + str(snippetTitle) + "', '" + str(snippetDesc) + "', '" + str(snippetCode) + "'")
 cmd.execute()
+
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py" />'
