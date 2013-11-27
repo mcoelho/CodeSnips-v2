@@ -21,7 +21,13 @@ if 'comment' in args:
     with open(datafile, "wb") as handle:
         cPickle.dump(data,handle)
     
-print "<html><head></head><body>"
+print "<html><head><link href='Media/style.css' rel = 'stylesheet' type = 'text/css' media='all'/></head><body>"
+print "<div id = 'main'>"
+print "<div id = 'container'>"
+
+#put all html code inside mainbody
+print "<div id = 'mainbody'>" 
+
 print "<h1>Login page</h1>"	
 
 if 'email' in args and 'password' in args:
@@ -71,6 +77,11 @@ else:
     <input type="submit" value="Log in">
 	<a href="signup.cgi">Dont't have account?</a>
     </form>''' % sys.argv[0]
+	
+print "</div>"
+#put all html code above this hashtag (unless you don't want it in the main body)
+print "</div>"
+print "</div>"
 	
 print "</body></html>"
 
