@@ -22,12 +22,14 @@ if 'comment' in args:
         cPickle.dump(data,handle)
     
 print "<html><head></head><body>"
-print "<h1>Login page</h1>"
+print "<h1>Login page</h1>"	
 
 if 'user' in args and 'password' in args:
 	where = "email='"+args['email']+"' AND password='"+args['password']+","
-	cmd = commands.ReadFromDatabaseCommand("User", where)
+	cmd = Commands.ReadFromDatabaseCommand("User", where)
 	rows = cmd.execute()
+	for row in rows:
+		print "<p>" + row['name'] + " " + row['email'] + " " + row['password'] + "</p>"
 	if "user" and "password" in cmd:
 		print "<p>logged as %s</p>" % args["user"]
 		print '''<form action="%s" method="get">
@@ -35,8 +37,8 @@ if 'user' in args and 'password' in args:
 		<input type="submit" value="Log out">
 		</form>''' % sys.argv[0]
 	else:
-		#print "<p>%s does not exist</p>" % args["email"]
-		print "test"
+		print "<p>%s does not exist</p>" % args["email"]
+		
 else:
     print '''<form action="%s" method="get">
 	UserID:
