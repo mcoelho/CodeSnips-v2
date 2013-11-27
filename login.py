@@ -27,8 +27,9 @@ print "<div id = 'container'>"
 
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
+print "<img src='Media/logo.gif' alt='logo'><hr />"
 
-print "<h1>Login page</h1>"	
+print "<h2>Login page</h2>"	
 
 if 'email' in args and 'password' in args:
 	where = "email='"+args['email']+"' AND password='"+args['password']+"'"
@@ -81,6 +82,7 @@ else:
 	<a href="signup.cgi">Dont't have account?</a>
     </form>''' % sys.argv[0]
 	
+print "<br>"
 print "</div>"
 #put all html code above this hashtag (unless you don't want it in the main body)
 print "</div>"
