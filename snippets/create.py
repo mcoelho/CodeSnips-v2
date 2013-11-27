@@ -28,6 +28,7 @@ print "<form name='snippetInput' action='push.py' method='post'>"
 print "Snippet Title: <input type='text' name='snippetTitle'><br>"
 print "Snippet Description: <input type='text' name='snippetDesc'><br>"
 print "Snippet Language: <input type='text' name='snippetLang'><br>"
+print "Language Version: <input type='text' name='snippetVersion'><br>"
 print "Code: <input type='textarea' name='snippetCode'><br>"
 print "<input type='submit' value='Submit'>"
 
