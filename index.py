@@ -20,7 +20,22 @@ print "<div id = 'container'>"
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
 
-print "<h1>CodeSnips</h1>"
+print "<img src='Media/logo.gif' alt='logo'>"
+
+print "<div id = 'navblock'>"
+print "<ul>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py>Home</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py>Create Snippet</a></li>"
+print "<li><a href=#>View Langauges</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in/Log-out</a></li>"
+print "</ul>" 
+print "</div>"
+
+print "<hr />"
+
+
+print "<h2>Welcome!</h2>"
 
 #this is a section break (it has an image to make it look cool):
 print "<hr />"

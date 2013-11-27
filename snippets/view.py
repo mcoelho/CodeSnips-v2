@@ -25,10 +25,23 @@ print "<div id = 'main'>"
 print "<div id = 'container'>"
 
 #put all html code inside mainbody
-print "<div id = 'mainbody'>" 
+print "<div id = 'mainbody'>"
 
-print "<h1>View Snippets</h1>"
-print "<hr />"
+print "<img src='../Media/logo.gif' alt='logo'>"
+
+print "<div id = 'navblock'>"
+print "<ul>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py>Home</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py>Create Snippet</a></li>"
+print "<li><a href=#>View Langauges</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in/Log-out</a></li>"
+print "</ul>" 
+print "</div>"
+
+print "<hr />" 
+
+print "<h2>View Snippets</h2>"
 
 for row in rows:
 	print "<a href='details.py?id="+ str(row['id'])+"'>" + str(row['title']) + "</a><br>"
