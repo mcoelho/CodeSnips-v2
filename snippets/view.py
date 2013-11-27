@@ -41,10 +41,7 @@ for row in rows:
 	print "<h2>Langauge and Version</h2>"
 	print "<p>" + row['language'] + " " + row['version'] + "</p><br>"
 	print "<h2>Code</h2>"
-	print "<code>" + row['code'] + "</code><br>"
-	print "<button type='submit' formaction='update.py'>Edit</button>"
-
-	print "<hr />" 
+	print "<code>" + row['code'] + "</code><br><hr />" 
 
 print "<br />"
 
