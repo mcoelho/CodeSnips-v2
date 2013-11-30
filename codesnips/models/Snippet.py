@@ -1,12 +1,13 @@
-import Post
-
+import os,sys,inspect
+pkg = "~/public_html/oop/codesnips"
+sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
+from Post import *
 
 class Snippet(Post):
-	def __init__(self, id, userId, upvotes, downvotes, lastChanged, title, revisionRequest, description, code, language, version):
+	def __init__(self, id, userId, upvotes, downvotes, lastChanged, title, description, code, language, version):
+		
 		Post.__init__(self, id, userId, upvotes, downvotes, lastChanged)
-		self.id = id
 		self.title = title
-		self.revisionRequest = revisionRequest
 		self.description = description
 		self.code = code
 		self.language = language
