@@ -15,7 +15,7 @@ class JavaLanguage(Language):
         self.creator = 'James Gosling'
         self.yearIntroduced = '1995'
         self.operatingSystem = 'Cross-Platform'
-        self.versioNumber = self.versionNumber
+        self.versionNumber = versionNumber
         self.version = self.versionFactory(versionNumber)
     '''
        creates the different versions of the code depending on the version number indicated, we can replace the statically coded values with the
