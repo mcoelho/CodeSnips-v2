@@ -3,7 +3,6 @@
 import os
 import cgi
 import cgitb; cgitb.enable()
-import sqlite3
 import sys
 
 pkg = "~/public_html/oop/codesnips"
