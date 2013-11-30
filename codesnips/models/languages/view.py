@@ -1,8 +1,7 @@
 #!/local/bin/python
-
 import cgi
 import cgitb; cgitb.enable()
-#from AbstractLanguageFactory import AbstractLanguageFactory
+from AbstractLanguageFactory import AbstractLanguageFactory
 
 def view(languageName, versionNumber):
     
