@@ -28,9 +28,10 @@ if 'languageName' in args:
         print "Content-type: text/html\n"
     
         print "<html><head></head><body>"
-    
+        
         print "<h1>View Test</h1>"
-
+        print args['languageName']
+        print args['versionNumber']
         view(args['languageName'], args['versionNumber'])
 
         print "</body></html>"

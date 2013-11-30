@@ -14,8 +14,8 @@ class PythonLanguage(Language):
         self.creator = 'Guido van Rossum'
         self.yearIntroduced = '1991'
         self.operatingSystem = 'Cross-Platform'
-        self.versionNumber = self.versionNumber
-        self.version = self.versionFactory(versionNumber)
+        self.versionNumber = versionNumber
+        self.version = self.versionFactory(self.versionNumber)
     
     '''
        creates the different versions of the code depending on the version number indicated, we can replace the statically coded values with the
