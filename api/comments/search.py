@@ -28,41 +28,14 @@ if "id" in args:
 		u = NullUser()
 		print jsonpickle.encode(u)
 
-elif "userId" in args:
-	cmd = dbCommands.ReadFromDatabaseCommand("Snippet", "userId='"+args['userId']+"'")
-	rows = cmd.execute()
-
-	if(any(rows)):
-		result = []
-		for row in rows:
-			u = Snippet(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['title'], row['description'], row['code'], row['language'], row['version'])
-			result.append(u)
-		print jsonpickle.encode(result)
-	else:
-		u = NullUser()
-		print jsonpickle.encode(u)
-elif "language" in args:
-	cmd = dbCommands.ReadFromDatabaseCommand("Snippet", "language='"+args['language']+"'")
-	rows = cmd.execute()
-
-	if(any(rows)):
-		result = []
-		for row in rows:
-			u = Snippet(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['title'], row['description'], row['code'], row['language'], row['version'])
-			result.append(u)
-		print jsonpickle.encode(result)
-	else:
-		u = NullUser()
-		print jsonpickle.encode(u)
-
 else:
-	cmd = dbCommands.ReadFromDatabaseCommand("Snippet")
+	cmd = dbCommands.ReadFromDatabaseCommand("Comment")
 	rows = cmd.execute()
 
 	if(any(rows)):
 		result = []
 		for row in rows:
-			u = Snippet(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['title'], row['description'], row['code'], row['language'], row['version'])
+			u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:
