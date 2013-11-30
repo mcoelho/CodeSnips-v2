@@ -1,6 +1,3 @@
-
-
-
 from JavaLanguage import JavaLanguage
 from PhpLanguage import PhpLanguage
 from PythonLanguage import PythonLanguage
