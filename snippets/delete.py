@@ -13,10 +13,11 @@ url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
 if 'user' in args:
-	user = dbCommands.ReadFromDatabaseCommand("user", 'id='+args['user']).execute()
-	if any(user):
-		if user['permissions'] == 2 || user['permissions'] == 3:
-			cmd = dbCommands.DeleteFromDatabaseCommand("Snippet", "id="+str(1+int(args['id'])))
+	users = dbCommands.ReadFromDatabaseCommand("user", 'id='+args['user']).execute()
+	if any(users):
+		user = users[0]
+		if user['permissions'] == 2 or user['permissions'] == 3:
+			cmd = dbCommands.DeleteFromDatabaseCommand("Snippet", "id="+str(int(args['id'])))
 			cmd.execute()
 
-print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py'" />'
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py" />'
