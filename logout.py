@@ -27,7 +27,7 @@ print "<div id = 'container'>"
 
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
-print "<img src='Media/logo.gif' alt='logo'><hr />"
+print "<a href=http://web.cs.dal.ca/~yzhang/oop/index1.py><img src='Media/logo.gif' alt='logo'></a><hr />"
 
 print "<p>Log-out successfully!</p>"
 print "<p>Thank you for using CodeSnips!</p>"

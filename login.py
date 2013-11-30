@@ -5,6 +5,7 @@ pkg = "~/public_html/oop/codesnips"
 sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
 from codesnips.data import dbCommands
 import cookielib
+import urllib2
 import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 
@@ -13,22 +14,13 @@ args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
 print "Content-type: text/html\n"
 
-if 'comment' in args:
-    data.append({
-        'who' : args.get('user',"") and args.get("password",""),
-        'when': time.ctime(),
-        'what': args.get('comment')
-    })
-    with open(datafile, "wb") as handle:
-        cPickle.dump(data,handle)
-    
 print "<html><head><link href='Media/style.css' rel = 'stylesheet' type = 'text/css' media='all'/></head><body>"
 print "<div id = 'main'>"
 print "<div id = 'container'>"
 
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
-print "<img src='Media/logo.gif' alt='logo'><hr />"
+print "<a href=http://web.cs.dal.ca/~yzhang/oop/index1.py><img src='Media/logo.gif' alt='logo'></a><hr />"
 
 print "<h2>Login page</h2>"	
 
@@ -40,7 +32,7 @@ if 'email' in args and 'password' in args:
 		row = rows[0]
 		if row["email"] == args["email"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["email"]
-			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~coleho/oop/index1.py" />'
+			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~yzhang/oop/index1.py" />'
 
 			
 	else:
@@ -57,11 +49,8 @@ elif 'name' in args and 'password' in args:
 		row = rows[0]
 		if row["name"] == args["name"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["name"]
-			print '<meta http-equiv="refresh" content="1;url=http://web.cs.dal.ca/~coleho/oop/index1.py" />'
-			print '''<form action="%s" method="get">
-			<input type="hidden" name="name" value=""/>
-			<input type="submit" value="Log out">
-			</form>''' % sys.argv[0]	
+			print '<meta http-equiv="refresh" content="1;url=http://web.cs.dal.ca/~yzhang/oop/index1.py" />'
+
 	else:
 		print "<p>%s does not exist</p>" % args["name"]
 		print '''<form action="%s" method="get">
@@ -79,18 +68,21 @@ else:
 	<a href="signup.cgi">Don't have account?</a>
     </form>''' % sys.argv[0]
 
-def __init__(self, email, password):
-        #self.logged_in      = False
-        #self.email       = email
-        #self.password       = password
-        #self.cookiejar      = cookielib.CookieJar()
-        #opener              = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cookiejar))
-        #urllib2.install_opener(opener)
-		opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookielib.CookieJar())) 
-		params = urllib.urlencode({'email': email})
-		urllib2.urlopen('http://web.cs.dal.ca/~coleho/oop/login.py', params)
-		
-		print (self.opener.urlopen(url, data))
+def pythonAutoHandleCookie():
+    cookieFilenameLWP = "localCookiesLWP.txt";
+    cookieJarFileLWP = cookielib.LWPCookieJar(cookieFilenameLWP);
+    #will create (and save to) new cookie file
+    cookieJarFileLWP.save();
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookieJarFileLWP));
+    urllib2.install_opener(opener);
+    #!!! following urllib2 will auto handle cookies
+    demoUrl = "http://web.cs.dal.ca/~yzhang/oop/index1.py";
+    response = urllib2.urlopen(demoUrl);
+    #update cookies, save cookies into file
+    cookieJarFileLWP.save();
+    #for demo, print cookies in file
+    print "LWP cookies:";
+    print open(cookieFilenameLWP).read(os.path.getsize(cookieFilenameLWP));
 	
 print "<br>"
 print "</div>"
