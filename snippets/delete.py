@@ -15,7 +15,7 @@ args = {x: url_args.getvalue(x) for x in url_args.keys()}
 if 'user' in args:
 	user = dbCommands.ReadFromDatabaseCommand("user", 'id='+args['user']).execute()
 	if any(user):
-		if user['permissions'] == 2 || user['permissions'] == 3
+		if user['permissions'] == 2 || user['permissions'] == 3:
 			cmd = dbCommands.DeleteFromDatabaseCommand("Snippet", "id="+str(1+int(args['id'])))
 			cmd.execute()
 
