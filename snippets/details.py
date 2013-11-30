@@ -16,6 +16,9 @@ args = {x: url_args.getvalue(x) for x in url_args.keys()}
 cmd = dbCommands.ReadFromDatabaseCommand("Snippet", "id='"+args['id']+"'")
 rows = cmd.execute()
 
+cmd = dbCommands.ReadFromDatabaseCommand("Comment", "snippetId='"+args['id']+"'")
+rows2 = cmd.execute()
+
 if any(rows):
 	row = rows[0]
 	print "Content-type: text/html\n"
@@ -58,7 +61,18 @@ if any(rows):
 	print "<br />"
 
 	print "<h2>Comments</h2>"
-	print "<a href=comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"
+	print "<form name='leaveComment' action='../comments/add.py' method='post'>"
+	print "<textarea name='snippetComment'>Add your code here!</textarea><br>"
+	print "<input type='hidden' name='snippetID' value='"+str(row['id'])+"'>"
+	print "<div id='submitbutton'>"
+	print "<input type='submit' value='Submit'>"
+	print "</div>"
+	print "</form>"
+
+	for row2 in rows2:
+		print "<p>Comment: " + str(row2['message']) + "</p>"
+		print "<hr />"
+	#print "<a href=../comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"
 	print "</div>"
 	print "</div>"
 	#put all html code above this hashtag (unless you don't want it in the main body)

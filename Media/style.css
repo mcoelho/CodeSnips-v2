@@ -121,3 +121,16 @@ h2{
 	color: black;
 	background-color: lightgrey;
 }
+
+div#submitbutton{
+	text-decoration: none;
+	padding: .2em 1em;
+	color: darkgrey;
+	background-color: white;
+	border-right-style: solid;
+	border-right-color: lightgrey;
+	border-right-width: 1px;
+	border-left-style: solid;
+	border-left-color: lightgrey;
+	border-left-width: 1px;
+}
