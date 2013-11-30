@@ -63,13 +63,12 @@ if any(rows):
 	print "<form name='leaveComment' action='../comments/add.py' method='post'>"
 	print "<textarea name='snippetComment'>Add your code here!</textarea><br>"
 	print "<input type='hidden' name='snippetID' value='"+str(row['id'])+"'>"
-	print "<div id='submitbutton'>"
 	print "<input type='submit' value='Submit'>"
-	print "</div>"
 	print "</form>"
 
 	for row2 in rows2:
 		print "<p>Comment: " + str(row2['message']) + "</p>"
+		print "<a href='../comments/delete.py?id="+str(row2['id'])+"&user="+str(row2['userId'])+"&snippetId="+str(row2['snippetId'])+"'>Delete comment</a>"
 		print "<hr />"
 	#print "<a href=../comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"
 	print "</div>"
