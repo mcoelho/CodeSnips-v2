@@ -4,6 +4,7 @@ import os, sys, time, cPickle
 pkg = "~/public_html/oop/codesnips"
 sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
 from codesnips.data import dbCommands
+import cookielib
 import cgi
 import cgitb; cgitb.enable()  # for troubleshooting
 
@@ -39,19 +40,15 @@ if 'email' in args and 'password' in args:
 		row = rows[0]
 		if row["email"] == args["email"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["email"]
-			print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/index.py" />'
-			print '''<form action="%s" method="get">
-			<input type="hidden" name="email" value=""/>
-			<input type="submit" value="Log out">
-			</form>''' % sys.argv[0]
+			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~coleho/oop/index1.py" />'
+
 			
 	else:
 		print "<p>%s does not exist</p>" % args["email"]
 		print '''<form action="%s" method="get">
 		<input type="submit" value="Go back to Login page">
 		</form>''' % sys.argv[0]
-		
-		
+				
 elif 'name' in args and 'password' in args:
 	where = "name='"+args['name']+"' AND password='"+args['password']+"'"
 	cmd = dbCommands.ReadFromDatabaseCommand("User", where)
@@ -60,7 +57,7 @@ elif 'name' in args and 'password' in args:
 		row = rows[0]
 		if row["name"] == args["name"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["name"]
-			print "<a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>Go back</a>"
+			print '<meta http-equiv="refresh" content="1;url=http://web.cs.dal.ca/~coleho/oop/index1.py" />'
 			print '''<form action="%s" method="get">
 			<input type="hidden" name="name" value=""/>
 			<input type="submit" value="Log out">
@@ -79,8 +76,21 @@ else:
 	Password:
 	<input type="password" name="password">
     <input type="submit" value="Log in">
-	<a href="signup.cgi">Dont't have account?</a>
+	<a href="signup.cgi">Don't have account?</a>
     </form>''' % sys.argv[0]
+
+def __init__(self, email, password):
+        #self.logged_in      = False
+        #self.email       = email
+        #self.password       = password
+        #self.cookiejar      = cookielib.CookieJar()
+        #opener              = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cookiejar))
+        #urllib2.install_opener(opener)
+		opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookielib.CookieJar())) 
+		params = urllib.urlencode({'email': email})
+		urllib2.urlopen('http://web.cs.dal.ca/~coleho/oop/login.py', params)
+		
+		print (self.opener.urlopen(url, data))
 	
 print "<br>"
 print "</div>"

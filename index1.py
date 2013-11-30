@@ -20,7 +20,7 @@ print "<div id = 'container'>"
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
 
-print "<a href=http://web.cs.dal.ca/~coleho/oop/index.py><img src='Media/logo.gif' alt='logo'></a>"
+print "<a href=http://web.cs.dal.ca/~coleho/oop/index1.py><img src='Media/logo.gif' alt='logo'></a>"
 
 print "<div id = 'navblock'>"
 print "<ul>"
@@ -28,7 +28,7 @@ print "<li><a style='color:black' href=http://web.cs.dal.ca/~coleho/oop/index.py
 print "<li><a href=http://web.cs.dal.ca/~coleho/oop/snippets/view.py>View Snippets</a></li>"
 print "<li><a href=http://web.cs.dal.ca/~coleho/oop/snippets/create.py>Create Snippet</a></li>"
 print "<li><a href=#>View Languages</a></li>"
-print "<li><a href=http://web.cs.dal.ca/~coleho/oop/login.py>Log-in</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coleho/oop/logout.py>Log-out</a></li>"
 print "</ul>" 
 print "</div>"
 
@@ -37,7 +37,8 @@ print "<hr />"
 
 print "<h2>Welcome!</h2>"
 
-print "<p>Welcome to CodeSnips!</p>"
+print "<p>Now enjoy CodeSnips!</p>"
+print "<p>You can view snippets, create snippet or view different languages!</p>"
 
 #this is a section break (it has an image to make it look cool):
 

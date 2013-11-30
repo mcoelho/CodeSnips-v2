@@ -1,10 +1,3 @@
-'''
-Created on 2013-11-25
-
-@author: Cameron Sieffert
-@summary: An abstract factory class for creating the different types of language classes that extend the language superclass objects for the user.  
-
-'''
 from JavaLanguage import JavaLanguage
 from PhpLanguage import PhpLanguage
 from PythonLanguage import PythonLanguage
