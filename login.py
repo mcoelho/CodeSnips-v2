@@ -20,7 +20,7 @@ print "<div id = 'container'>"
 
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
-print "<a href=http://web.cs.dal.ca/~coleho/oop/index1.py><img src='Media/logo.gif' alt='logo'></a><hr />"
+print "<a href=http://web.cs.dal.ca/~coelho/oop/index1.py><img src='Media/logo.gif' alt='logo'></a><hr />"
 
 print "<h2>Login page</h2>"	
 
@@ -32,7 +32,7 @@ if 'email' in args and 'password' in args:
 		row = rows[0]
 		if row["email"] == args["email"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["email"]
-			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~coleho/oop/index1.py" />'
+			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~coelho/oop/index1.py" />'
 
 			
 	else:
@@ -49,7 +49,7 @@ elif 'name' in args and 'password' in args:
 		row = rows[0]
 		if row["name"] == args["name"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["name"]
-			print '<meta http-equiv="refresh" content="1;url=http://web.cs.dal.ca/~coleho/oop/index1.py" />'
+			print '<meta http-equiv="refresh" content="1;url=http://web.cs.dal.ca/~coelho/oop/index1.py" />'
 
 	else:
 		print "<p>%s does not exist</p>" % args["name"]
@@ -76,7 +76,7 @@ def pythonAutoHandleCookie():
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookieJarFileLWP));
     urllib2.install_opener(opener);
     #!!! following urllib2 will auto handle cookies
-    demoUrl = "http://web.cs.dal.ca/~coleho/oop/index1.py";
+    demoUrl = "http://web.cs.dal.ca/~coelho/oop/index1.py";
     response = urllib2.urlopen(demoUrl);
     #update cookies, save cookies into file
     cookieJarFileLWP.save();
