@@ -5,7 +5,7 @@ import cgitb; cgitb.enable()
 from AbstractLanguageFactory import AbstractLanguageFactory
 
 def view(languageName, versionNumber):
-
+    
     factory = AbstractLanguageFactory()
     language = factory.createLanguage(languageName, versionNumber)
     
