@@ -2,7 +2,7 @@
 
 import cgi
 import cgitb; cgitb.enable()
-import AbstractLanguageFactory
+from AbstractLanguageFactory import AbstractLanguageFactory
 
 def view(languageName, versionNumber):
 
