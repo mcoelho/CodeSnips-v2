@@ -1,4 +1,4 @@
-1#!/local/bin/python
+#!/local/bin/python
 
 import os, sys, time, cPickle
 pkg = "~/public_html/oop/codesnips"
@@ -59,7 +59,7 @@ else:
     <input type="submit" value="Confirm">
     </form>''' % sys.argv[0]
     
-dbCommands.AddtoDatabaseCommand("User","name,email,password,dob,bio,specialization,gravatarLink,favorites","'"+form["name"].value+"','"+form["email"].value+"','"+form["password"].value+"','"+form["dob"].value+"','"+form["bio"].value+"','"+form["specialization"].value+"','"+form["gravatarLink"].value+"','"+form["favorites"].value+"'").execute()
+dbCommands.AddToDatabaseCommand("User","name,email,password,dob,bio,specialization,gravatarLink,favorites","'"+form["name"].value+"','"+form["email"].value+"','"+form["password"].value+"','"+form["dob"].value+"','"+form["bio"].value+"','"+form["specialization"].value+"','"+form["gravatarLink"].value+"','"+form["favorites"].value+"'").execute()
 
 for x in data:
     print "<li><b>%s <em>(%s)</em>:</b> %s</li>" % (x['who'], x['when'], x['what'])
