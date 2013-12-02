@@ -64,10 +64,6 @@ if u.gravatarLink is not None:
 	columns += ", gravatarLink"
 	values += ", '" + u.gravatarLink + "'"
 
-if u.favorites is not None:
-	columns += ", favorites"
-	values += ", '" + u.favorites + "'"
-
 if u.permissions is not None:
 	columns += ", permissions"
 	values += ", '" + str(u.permissions) + "'"

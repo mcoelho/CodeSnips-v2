@@ -16,19 +16,7 @@ args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
 print "Content-type: application/json\n"
 
-if "snippetId" in args and "id" in args:
-	cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id='"+args['id']+"' AND snippetId='"+args['snippetId']+"'")
-	rows = cmd.execute()
-
-	if(any(rows)):
-		row = rows[0]
-		u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
-		print jsonpickle.encode(u)
-	else:
-		u = NullUser()
-		print jsonpickle.encode(u)
-		
-else if "id" in args:
+if "id" in args:
 	cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id='"+args['id']+"'")
 	rows = cmd.execute()
 
@@ -37,19 +25,21 @@ else if "id" in args:
 		u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
 		print jsonpickle.encode(u)
 	else:
-		u = NullUser()
+		u = NullComment()
 		print jsonpickle.encode(u)
 
-else if "snippetId" in args:
+elif "snippetId" in args:
 	cmd = dbCommands.ReadFromDatabaseCommand("Comment", "snippetId='"+args['snippetId']+"'")
 	rows = cmd.execute()
 
 	if(any(rows)):
-		row = rows[0]
-		u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
-		print jsonpickle.encode(u)
+		result = []
+		for row in rows:
+			u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
+			result.append(u)
+		print jsonpickle.encode(result)
 	else:
-		u = NullUser()
+		u = NullComment()
 		print jsonpickle.encode(u)
 
 else:
@@ -63,5 +53,5 @@ else:
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:
-		u = NullUser()
+		u = NullComment()
 		print jsonpickle.encode(u)

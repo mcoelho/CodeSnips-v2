@@ -44,9 +44,6 @@ else:
 	if u.gravatarLink is not None:
 		data += "gravatarLink='" + u.gravatarLink + "',"
 
-	if u.favorites is not None:
-		data += "favorites='" + u.favorites + "',"
-
 	if u.permissions is not None:
 		data += "permissions='" + str(u.permissions) + "',"
 	else:

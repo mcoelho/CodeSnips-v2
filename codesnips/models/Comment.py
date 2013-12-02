@@ -8,3 +8,7 @@ class Comment(Post):
 		Post.__init__(self, id, userId, upvotes, downvotes, lastChanged)
 		self.snippetId = snippetId
 		self.message = message
+
+class NullComment(object):
+	def __init__(self):
+		self.isNull = True
