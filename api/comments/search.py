@@ -15,9 +15,33 @@ url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
 print "Content-type: application/json\n"
-   
-if "id" in args:
+
+if "snippetId" in args and "id" in args:
+	cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id='"+args['id']+"' AND snippetId='"+args['snippetId']+"'")
+	rows = cmd.execute()
+
+	if(any(rows)):
+		row = rows[0]
+		u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
+		print jsonpickle.encode(u)
+	else:
+		u = NullUser()
+		print jsonpickle.encode(u)
+		
+else if "id" in args:
 	cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id='"+args['id']+"'")
+	rows = cmd.execute()
+
+	if(any(rows)):
+		row = rows[0]
+		u = Comment(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['snippetId'], row['message'])
+		print jsonpickle.encode(u)
+	else:
+		u = NullUser()
+		print jsonpickle.encode(u)
+
+else if "snippetId" in args:
+	cmd = dbCommands.ReadFromDatabaseCommand("Comment", "snippetId='"+args['snippetId']+"'")
 	rows = cmd.execute()
 
 	if(any(rows)):
