@@ -1,6 +1,6 @@
 #!/local/bin/python
 
-import os, sys, inspect
+import os, sys, inspect, datetime
 import cgi
 import cgitb; cgitb.enable()
 pkg = "~/public_html/oop/codesnips"
@@ -13,6 +13,6 @@ form = cgi.FieldStorage()
 comment = form.getvalue('snippetComment')
 snippetID = form.getvalue('snippetID')
 
-cmd = dbCommands.AddToDatabaseCommand("Comment", "userId, snippetId, message", "1, '" + str(snippetID) + "', '" + str(comment) + "'")
+cmd = dbCommands.AddToDatabaseCommand("Comment", "userId, snippetId, message, lastChanged", "1, '" + str(snippetID) + "', '" + str(comment) + "', '" + str(datetime.datetime.now()) + "'")
 cmd.execute()
 print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details.py?id='+str(snippetID)+'"/>'

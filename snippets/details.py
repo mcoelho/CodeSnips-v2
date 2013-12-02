@@ -55,6 +55,7 @@ if any(rows):
 	print "<p>" + row['language'] + " " + row['version'] + "</p><br>"
 	print "<h2>Code</h2>"
 	print "<code>" + row['code'] + "</code><br><hr />"
+	print "<p><i>Last Changed: "+ row['lastChanged'] +"</i></p>"
 	print "<div id = buttons>"
 	print "<a href='edit.py?id="+str(row['id'])+"'>Edit snippet</a> | <a href='upvote.py?id="+str(row['id'])+ "&votes=" + str(row['upvotes']) + "'>" + str(row['upvotes']) + " - Upvote Snippet</a> | <a href='downvote.py?id="+str(row['id'])+"&votes=" + str(row['downvotes']) + "'>" + str(row['downvotes']) + " - Downvote Snippet</a>"
 	print "<br />"
@@ -68,6 +69,7 @@ if any(rows):
 
 	for row2 in rows2:
 		print "<p>Comment: " + str(row2['message']) + "</p>"
+		print "<p><i>Last Changed: "+ str(row2['lastChanged']) +"</i></p>"
 		print "<a href='../comments/delete.py?id="+str(row2['id'])+"&user="+str(row2['userId'])+"&snippetId="+str(row2['snippetId'])+"'>Delete comment</a>"
 		print "<hr />"
 	#print "<a href=../comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"

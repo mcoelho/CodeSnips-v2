@@ -17,7 +17,7 @@ print "Content-type: application/json\n"
 
 result = {}
 result['success'] = True
-result['message'] = "User Added Successfully"
+result['message'] = "User Edited Successfully"
 
 data = ""
 
