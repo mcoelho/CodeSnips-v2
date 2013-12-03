@@ -46,7 +46,7 @@ print "<h2>View Snippets</h2>"
 for row in rows:
 	print "<p>Snippet name: " + str(row['title']) + "</p>"
 	print "<p>Language and Version: " + row['language'] + " " + row['version'] + "</p>"
-	print "<a class='button' href='details.py?id="+ str(row['id'])+"'>Snippet Details</a><hr />"
+	print "<a class='button' href='details1.py?id="+ str(row['id'])+"'>Snippet Details</a><hr />"
 
 print "<br />"
 
