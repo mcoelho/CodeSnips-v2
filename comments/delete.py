@@ -19,6 +19,14 @@ if 'user' in args:
 		if users[0]['permissions'] == 2 or users[0]['permissions'] == 3:
 			cmd = dbCommands.DeleteFromDatabaseCommand("Comment", "id="+args['id'])
 			cmd.execute()
+		else:
+			cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id="+args['id'])
+			rows = cmd.execute()
+			if any(rows):
+				if int(row[0]['userId']) == int(args['user']):
+					cmd = dbCommands.DeleteFromDatabaseCommand("Comment", "id="+args['id'])
+					cmd.execute()
+		
 
 
 print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details.py?id='+args['snippetId']+'"/>'

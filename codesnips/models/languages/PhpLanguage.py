@@ -14,7 +14,7 @@ class PhpLanguage(Language):
         self.creator = 'Rasmus Lerdorf'
         self.yearIntroduced = '1995'
         self.operatingSystem = 'Cross-Platform'
-        self.versionNumber = self.versionNumber
+        self.versionNumber = versionNumber
         self.version = self.versionFactory(versionNumber)
     
     '''

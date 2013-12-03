@@ -22,7 +22,7 @@ if "id" in args:
 
 	if(any(rows)):
 		row = rows[0]
-		u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+		u = User(row['id'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['permissions'])
 		print jsonpickle.encode(u)
 	else:
 		u = NullUser()
@@ -35,7 +35,7 @@ elif "permissions" in args:
 	if(any(rows)):
 		result = []
 		for row in rows:
-			u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+			u = User(row['id'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['permissions'])
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:
@@ -49,7 +49,7 @@ else:
 	if(any(rows)):
 		result = []
 		for row in rows:
-			u = User(row['id'], row['userHistory'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['favorites'], row['permissions'])
+			u = User(row['id'], row['name'], row['email'], row['password'], row['dob'], row['bio'], row['specialization'], row['gravatarLink'], row['permissions'])
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:

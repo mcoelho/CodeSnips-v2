@@ -25,7 +25,7 @@ if "id" in args:
 		u = Snippet(row['id'], row['userId'], row['upvotes'], row['downvotes'], row['lastChanged'], row['title'], row['description'], row['code'], row['language'], row['version'])
 		print jsonpickle.encode(u)
 	else:
-		u = NullUser()
+		u = NullSnippet()
 		print jsonpickle.encode(u)
 
 elif "userId" in args:
@@ -39,7 +39,7 @@ elif "userId" in args:
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:
-		u = NullUser()
+		u = NullSnippet()
 		print jsonpickle.encode(u)
 elif "language" in args:
 	cmd = dbCommands.ReadFromDatabaseCommand("Snippet", "language='"+args['language']+"'")
@@ -52,7 +52,7 @@ elif "language" in args:
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:
-		u = NullUser()
+		u = NullSnippet()
 		print jsonpickle.encode(u)
 
 else:
@@ -66,5 +66,5 @@ else:
 			result.append(u)
 		print jsonpickle.encode(result)
 	else:
-		u = NullUser()
+		u = NullSnippet()
 		print jsonpickle.encode(u)

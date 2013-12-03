@@ -17,7 +17,7 @@ print "Content-type: application/json\n"
 
 result = {}
 result['success'] = True
-result['message'] = "User Added Successfully"
+result['message'] = "User Edited Successfully"
 
 data = ""
 
@@ -43,9 +43,6 @@ else:
 
 	if u.gravatarLink is not None:
 		data += "gravatarLink='" + u.gravatarLink + "',"
-
-	if u.favorites is not None:
-		data += "favorites='" + u.favorites + "',"
 
 	if u.permissions is not None:
 		data += "permissions='" + str(u.permissions) + "',"

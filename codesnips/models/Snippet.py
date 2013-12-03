@@ -12,3 +12,7 @@ class Snippet(Post):
 		self.code = code
 		self.language = language
 		self.version = version
+
+class NullSnippet(object):
+	def __init__(self):
+		self.isNull = True
