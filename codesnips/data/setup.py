@@ -5,6 +5,7 @@ import cgi
 import cgitb; cgitb.enable()
 import sqlite3
 import sys
+from initializeDBLanguages import *
 
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
@@ -38,6 +39,8 @@ if 'administrator' in args:
 		conn.commit()
 
 		conn.close()
+        initializeLanguages()
+        #add the code for initializeDBLanguages here
 		print "<p style='color:green'><strong>Database created sucessfully!</strong></p>"
 	else:
 		print "<p style='color:red'><strong>Wrong code entered!</strong></p>"
