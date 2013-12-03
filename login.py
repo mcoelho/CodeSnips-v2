@@ -48,7 +48,7 @@ else:
 	Password:
 	<input type="password" name="password">
     <input type="submit" value="Log in">
-	<a href="signup.py">Don't have account?</a>
+	<a href="users/signup.py">Don't have account?</a>
     </form>''' % sys.argv[0]
 	
 print "<br>"
