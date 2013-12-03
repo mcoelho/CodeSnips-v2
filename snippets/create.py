@@ -19,7 +19,7 @@ print "<div id = 'container'>"
 #put all html code inside mainbody
 print "<div id = 'mainbody'>"
 
-print "<img src='../Media/logo.gif' alt='logo'>"
+print "<a href=http://web.cs.dal.ca/~coelho/oop/index.py><img src='Media/logo.gif' alt='logo'></a><hr />"
 
 print "<div id = 'navblock'>"
 print "<ul>"
@@ -27,7 +27,7 @@ print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py>Home</a></li>"
 print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
 print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py>Create Snippet</a></li>"
 print "<li><a href=#>View Langauges</a></li>"
-print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in/Log-out</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login1.py>Log-out</a></li>"
 print "</ul>" 
 print "</div>"
 
