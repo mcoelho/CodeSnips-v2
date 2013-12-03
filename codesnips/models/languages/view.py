@@ -8,14 +8,14 @@ def view(languageName, versionNumber):
     factory = AbstractLanguageFactory()
     language = factory.createLanguage(languageName, versionNumber)
     
-    print "Language name: " + language.name
+    print "Language name:" + language.name
     print "Creator: " + language.creator
-    print "Year introduced: " + language.yearIntroduced
-    print "Operating system: " + language.operatingSystem
-    print "Version: " + language.versionNumber
-    print "Deprecated Functions: " 
+    print "Year introduced:" + language.yearIntroduced
+    print "Operating system:" + language.operatingSystem
+    print "Version:" + language.versionNumber
+    print "Deprecated Functions:" 
     print  language.version.depFunctions
-    print "New functions: "
+    print "New functions:"
     print  language.version.newFunctions
     print  "All functions:"
     print  language.version.allFunctions
