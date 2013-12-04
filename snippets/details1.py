@@ -23,7 +23,7 @@ rows2 = cmd.execute()
 cmd = dbCommands.ReadFromDatabaseCommand("User", "id='"+uid+"'")
 loggedInUser = cmd.execute()
 
-permissionsL = 0;
+permissionsL = 0
 if any(loggedInUser):
 	loggedInUser = loggedInUser[0]
 	permissionsL = loggedInUser['permissions']
