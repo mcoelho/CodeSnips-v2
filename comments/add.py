@@ -12,7 +12,8 @@ print "Content-type: text/html\n"
 form = cgi.FieldStorage()
 comment = form.getvalue('snippetComment')
 snippetID = form.getvalue('snippetID')
+uid = form.getvalue('uid')
 
-cmd = dbCommands.AddToDatabaseCommand("Comment", "userId, snippetId, message, lastChanged", "1, '" + str(snippetID) + "', '" + str(comment) + "', '" + str(datetime.datetime.now()) + "'")
+cmd = dbCommands.AddToDatabaseCommand("Comment", "userId, snippetId, message, lastChanged", "'" + uid + "', '" + str(snippetID) + "', '" + str(comment) + "', '" + str(datetime.datetime.now()) + "'")
 cmd.execute()
-print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details.py?id='+str(snippetID)+'"/>'
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details1.py?id='+str(snippetID)+'&uid=' + uid +'"/>'

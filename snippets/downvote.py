@@ -12,7 +12,9 @@ print "Content-type: text/html\n"
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
+uid = args['uid']
+
 cmd = dbCommands.UpdateOnDatabaseCommand("Snippet", "downvotes="+str(1+int(args['votes'])), "id="+args['id'])
 cmd.execute()
 
-print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details.py?id='+ args['id'] +'" />'
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details1.py?id='+ args['id'] +'&uid=' + uid + '"/>'

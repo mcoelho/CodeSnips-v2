@@ -16,8 +16,10 @@ snippetDesc = form.getvalue('snippetDesc')
 snippetLang = form.getvalue('snippetLang')
 snippetVersion = form.getvalue('snippetVersion')
 snippetCode = form.getvalue('snippetCode')
+uid = form.getvalue('uid')
 
 cmd = dbCommands.UpdateOnDatabaseCommand("Snippet", "language='"+snippetLang+"', version='"+snippetVersion+"', title='"+snippetTitle+"', description='"+snippetDesc+"', code='"+snippetCode+"', lastChanged='" + str(datetime.datetime.now()) +"'", "id="+snippetId)
 cmd.execute()
 
-print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py" />'
+
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py?uid=' + uid + '"/>'

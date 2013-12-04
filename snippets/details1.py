@@ -12,11 +12,21 @@ from codesnips.data import dbCommands
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
+uid = args['uid']
+
 cmd = dbCommands.ReadFromDatabaseCommand("Snippet", "id='"+args['id']+"'")
 rows = cmd.execute()
 
 cmd = dbCommands.ReadFromDatabaseCommand("Comment", "snippetId='"+args['id']+"'")
 rows2 = cmd.execute()
+
+cmd = dbCommands.ReadFromDatabaseCommand("User", "id='"+uid+"'")
+loggedInUser = cmd.execute()
+
+permissionsL = 0;
+if any(loggedInUser):
+	loggedInUser = loggedInUser[0]
+	permissionsL = loggedInUser['permissions']
 
 if any(rows):
 	row = rows[0]
@@ -35,9 +45,9 @@ if any(rows):
 
 	print "<div id = 'navblock'>"
 	print "<ul>"
-	print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/index1.py>Home</a></li>"
-	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py>View Snippets</a></li>"
-	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py>Create Snippet</a></li>"
+	print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/index1.py?uid=" + uid + ">Home</a></li>"
+	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py?uid=" + uid + ">View Snippets</a></li>"
+	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py?uid=" + uid + ">Create Snippet</a></li>"
 	print "<li><a href=#>View Languages</a></li>"
 	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/logout.py>Log-out</a></li>"
 	print "</ul>" 
@@ -57,20 +67,31 @@ if any(rows):
 	print "<code>" + row['code'] + "</code><br><hr />"
 	print "<p><i>Last Changed: "+ row['lastChanged'] +"</i></p>"
 	print "<div id = buttons>"
-	print "<a href='edit.py?id="+str(row['id'])+"'>Edit snippet</a> | <a href='upvote.py?id="+str(row['id'])+ "&votes=" + str(row['upvotes']) + "'>" + str(row['upvotes']) + " - Upvote Snippet</a> | <a href='downvote.py?id="+str(row['id'])+"&votes=" + str(row['downvotes']) + "'>" + str(row['downvotes']) + " - Downvote Snippet</a>"
+	if (permissionsL > 1):
+		print "<a href='edit.py?id="+str(row['id'])+"&uid=" + uid + "'>Edit snippet</a>"
+	print "<span> <a href='upvote.py?id="+str(row['id'])+ "&votes=" + str(row['upvotes']) + "&uid=" + uid + "'>" + str(row['upvotes']) + " - Upvote Snippet</a>  <a href='downvote.py?id="+str(row['id'])+"&votes=" + str(row['downvotes']) + "&uid=" + uid + "'>" + str(row['downvotes']) + " - Downvote Snippet</a></span>"
 	print "<br />"
 
 	print "<h2>Comments</h2>"
 	print "<form name='leaveComment' action='../comments/add.py' method='post'>"
 	print "<textarea name='snippetComment'>Add your code here!</textarea><br>"
 	print "<input type='hidden' name='snippetID' value='"+str(row['id'])+"'>"
+	print "<input type='hidden' name='uid' value='"+uid+"'>"
 	print "<input type='submit' value='Submit'>"
 	print "</form>"
 
 	for row2 in rows2:
-		print "<p>Comment: " + str(row2['message']) + "</p>"
+		cmd = dbCommands.ReadFromDatabaseCommand("User", "id='"+str(row2['userId'])+"'")
+		userinfo = cmd.execute()
+		if any(userinfo):
+			userinfo = userinfo[0]
+			nameL = userinfo['name']
+		else:
+			nameL = "NO USERNAME"
+		print "<p>"+ str(nameL) + ": " + str(row2['message']) + "</p>"
 		print "<p><i>Last Changed: "+ str(row2['lastChanged']) +"</i></p>"
-		print "<a href='../comments/delete.py?id="+str(row2['id'])+"&user="+str(row2['userId'])+"&snippetId="+str(row2['snippetId'])+"'>Delete comment</a>"
+		if (permissionsL > 1 or (str(uid) == str(row2['userId']))):
+			print "<a href='../comments/delete.py?id="+str(row2['id'])+"&uid="+uid+"&snippetId="+str(row2['snippetId'])+"'>Delete comment</a>"
 		print "<hr />"
 	#print "<a href=../comments/add.py?id="+str(row['id'])+"'>Add Comment</a>"
 	print "</div>"
