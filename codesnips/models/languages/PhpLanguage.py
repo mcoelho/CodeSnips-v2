@@ -3,6 +3,10 @@ Created on 2013-11-26
 
 @author: Cameron
 '''
+import os, sys, inspect
+pkg = "~/public_html/oop/codesnips"
+sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
+from codesnips.data import dbCommands 
 from Version import Version
 from Language import Language
 
@@ -23,23 +27,32 @@ class PhpLanguage(Language):
     '''    
     def versionFactory(self, versionNumber):
         if versionNumber=='1.0':
-            depfunctions = ['phpphpfunction1', 'phpfunction2', 'phpfunction3', 'phpfunction4']
-            newfunctions = ['phpfunction11', 'phpfunction12']
-            allfunctions = ['phpfunction11', 'phpfunction12', 'phpfunction10', 'phpfunction9']
-            knownBugs = ['had a single week to develop code']
+            cmd = dbCommands.ReadFromDatabaseCommand('Language', "name='PHP' AND version='1.0'")
+            rows = cmd.execute()
+            row = rows[0]
+            depFunctions = row['depFunctions']
+            newFunctions = row['newFunctions']
+            allFunctions = row['allFunctions']
+            knownBugs = row['bugs']
             return Version(versionNumber, depfunctions, newfunctions, allfunctions, knownBugs);
         elif versionNumber == '2.0':
-            depfunctions = ['phpfunction1', 'phpfunction2', 'phpfunction3', 'phpfunction4']
-            newfunctions = ['phpfunction11', 'phpfunction12']
-            allfunctions = ['phpfunction11', 'phpfunction12', 'phpfunction10', 'phpfunction9']
-            knownBugs = ['had a single week to develop code']
+            cmd = dbCommands.ReadFromDatabaseCommand('Language', "name='PHP' AND version='2.0'")
+            rows = cmd.execute()
+            row = rows[0]
+            depFunctions = row['depFunctions']
+            newFunctions = row['newFunctions']
+            allFunctions = row['allFunctions']
+            knownBugs = row['bugs']
             return Version(versionNumber, depfunctions, newfunctions, allfunctions, knownBugs);
         
         elif versionNumber == '3.0':
-            depfunctions = ['phpfunction1', 'phpfunction2', 'phpfunction3', 'phpfunction4']
-            newfunctions = ['phpfunction11', 'phpfunction12']
-            allfunctions = ['phpfunction11', 'phpfunction12', 'phpfunction10', 'phpfunction9']
-            knownBugs = ['had a single week to develop code']
+            cmd = dbCommands.ReadFromDatabaseCommand('Language', "name='PHP' AND version='3.0'")
+            rows = cmd.execute()
+            row = rows[0]
+            depFunctions = row['depFunctions']
+            newFunctions = row['newFunctions']
+            allFunctions = row['allFunctions']
+            knownBugs = row['bugs']
             return Version(versionNumber, depfunctions, newfunctions, allfunctions, knownBugs);
         else:
             print 'Invalid version' 
