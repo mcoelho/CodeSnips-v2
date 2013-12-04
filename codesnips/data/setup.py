@@ -5,7 +5,9 @@ import cgi
 import cgitb; cgitb.enable()
 import sqlite3
 import sys
-from initializeDBLanguages import *
+pkg = "~/public_html/oop/codesnips/models/languages"
+sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
+from languages.initializeDBLanguages import *
 
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
@@ -35,16 +37,15 @@ if 'administrator' in args:
 		c.execute('''CREATE TABLE "Comment" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "userId" INTEGER NOT NULL DEFAULT 0, "upvotes" INTEGER NOT NULL DEFAULT 0, "downvotes" INTEGER NOT NULL DEFAULT 0, "lastChanged" TEXT, "snippetId" INTEGER NOT NULL DEFAULT 0, "message" TEXT)''')
 		#c.execute('''CREATE TABLE "RevisionRequest" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "snippetId" INTEGER, "userId" INTEGER NOT NULL DEFAULT 0, "description" TEXT NOT NULL, "dateSent" TEXT, "code" TEXT)''')
 		#c.execute('''CREATE TABLE "UserHistory" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, "userId" INTEGER NOT NULL DEFAULT 0, "posts" TEXT, "comments" TEXT, "recentlyViewed" TEXT, "timeFrame" INTEGER, "timeFromNow" TEXT)''')
-
 		conn.commit()
 
 		conn.close()
-        initializeLanguages()
-        #add the code for initializeDBLanguages here
+                
 		print "<p style='color:green'><strong>Database created sucessfully!</strong></p>"
 	else:
 		print "<p style='color:red'><strong>Wrong code entered!</strong></p>"
-
+        
+initializeLanguages()
 print '''<form action="%s" method="get">
 <input type="text" name="administrator">
 <input type="submit" value="Setup">
