@@ -24,7 +24,7 @@ print "<div id = 'container'>"
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
 
-print "<a href=http://web.cs.dal.ca/~coelho/oop/index1.py><img src='Media/logo.gif' alt='logo'></a><hr />"
+print "<a href=http://web.cs.dal.ca/~coelho/oop/index1.py?uid=" + uid + "><img src='Media/logo.gif' alt='logo'></a><hr />"
 
 print "<div id = 'navblock'>"
 print "<ul>"

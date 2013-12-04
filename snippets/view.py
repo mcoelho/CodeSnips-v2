@@ -30,11 +30,11 @@ print "<div id = 'container'>"
 #put all html code inside mainbody
 print "<div id = 'mainbody'>"
 
-print "<a href=http://web.cs.dal.ca/~coelho/oop/index1.py><img src='../Media/logo.gif' alt='logo'></a><hr />"
+print "<a href=http://web.cs.dal.ca/~coelho/oop/index1.py?uid=" + uid + "><img src='../Media/logo.gif' alt='logo'></a><hr />"
 
 print "<div id = 'navblock'>"
 print "<ul>"
-print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py?uid=" + uid + ">Home</a></li>"
+print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index1.py?uid=" + uid + ">Home</a></li>"
 print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py?uid=" + uid + ">View Snippets</a></li>"
 print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py?uid=" + uid + ">Create Snippet</a></li>"
 print "<li><a href=#>View Langauges</a></li>"
@@ -49,7 +49,7 @@ print "<h2>View Snippets</h2>"
 for row in rows:
 	print "<p>Snippet name: " + str(row['title']) + "</p>"
 	print "<p>Language and Version: " + row['language'] + " " + row['version'] + "</p>"
-	print "<a class='button' href='details1.py?id="+ str(row['id'])+"'>Snippet Details</a><hr />"
+	print "<a class='button' href='details1.py?id="+ str(row['id'])+"&uid=" + uid + "'>Snippet Details</a><hr />"
 
 print "<br />"
 
