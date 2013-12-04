@@ -5,22 +5,8 @@ pkg = "~/public_html/oop/codesnips"
 sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
 from codesnips.data import dbCommands
 import cgi
-import Cookie
 import datetime
-import random
-import pwd # Getting userID
 import cgitb; cgitb.enable()  # for troubleshooting
-
-expiration = datetime.datetime.now() + datetime.timedelta(days=30)
-cookie = Cookie.SimpleCookie()
-cookie["session"] = random.randint(0,1000000000)
-cookie["session"]["domain"] = ".web.cs.dal.ca/~tlin"
-cookie["session"]["path"] = "/"
-cookie["session"]["expires"] = "re.esacpe('\')"
-expiration.strftime("%a, %d-%b-%Y %H:%M:%S PST")
-
-def get_userName():
-	return pwd.getpwuid(os.getuid())[0]
 
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
@@ -34,10 +20,9 @@ print "<div id = 'container'>"
 
 #put all html code inside mainbody
 print "<div id = 'mainbody'>" 
-print "<a href=http://web.cs.dal.ca/~coelho/oop/index1.py><img src='Media/logo.gif' alt='logo'></a><hr />"
+print "<a href=http://web.cs.dal.ca/~coelho/oop/index.py><img src='Media/logo.gif' alt='logo'></a><hr />"
 
 print "<h2>Login page</h2>"	
-print cookie.output()
 
 if 'email' in args and 'password' in args:
 	where = "email='"+args['email']+"' AND password='"+args['password']+"'"
@@ -47,7 +32,7 @@ if 'email' in args and 'password' in args:
 		row = rows[0]
 		if row["email"] == args["email"] and row["password"] == args["password"]:
 			print "<p>logged as %s</p>" % args["email"]
-			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~coelho/oop/index1.py" />'
+			print '<meta http-equiv="refresh" content="2;url=http://web.cs.dal.ca/~coelho/oop/index1.py?uid='+str(row['id'])+'" />'
 			
 	else:
 		print "<p>%s does not exist</p>" % args["email"]
@@ -63,7 +48,7 @@ else:
 	Password:
 	<input type="password" name="password">
     <input type="submit" value="Log in">
-	<a href="signup.cgi">Don't have account?</a>
+	<a href="users/signup.py">Don't have account?</a>
     </form>''' % sys.argv[0]
 	
 print "<br>"

@@ -12,21 +12,16 @@ print "Content-type: text/html\n"
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
-if 'user' in args:
-	cmd = dbCommands.ReadFromDatabaseCommand("User", "id="+args['user'])
-	users = cmd.execute()
-	if any(users):
-		if users[0]['permissions'] == 2 or users[0]['permissions'] == 3:
-			cmd = dbCommands.DeleteFromDatabaseCommand("Comment", "id="+args['id'])
-			cmd.execute()
-		else:
-			cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id="+args['id'])
-			rows = cmd.execute()
-			if any(rows):
-				if int(row[0]['userId']) == int(args['user']):
-					cmd = dbCommands.DeleteFromDatabaseCommand("Comment", "id="+args['id'])
-					cmd.execute()
+uid = args['uid']
+cmd = dbCommands.ReadFromDatabaseCommand("Comment", "id="+args['id'])
+rows = cmd.execute()
+
+
+
+if any(rows):
+	cmd = dbCommands.DeleteFromDatabaseCommand("Comment", "id="+args['id'])
+	cmd.execute()
 		
 
 
-print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details.py?id='+args['snippetId']+'"/>'
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/details1.py?id='+args['snippetId']+'&uid='+uid+'"/>'

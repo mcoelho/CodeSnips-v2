@@ -15,8 +15,9 @@ snippetDesc = form.getvalue('snippetDesc')
 snippetLang = form.getvalue('snippetLang')
 snippetVersion = form.getvalue('snippetVersion')
 snippetCode = form.getvalue('snippetCode')
+uid = form.getvalue('uid')
 
-cmd = dbCommands.AddToDatabaseCommand("Snippet", "userId, language, version, title, description, code, lastChanged", "1, '" + str(snippetLang) + "', '" + str(snippetVersion) + "', '" + str(snippetTitle) + "', '" + str(snippetDesc) + "', '" + str(snippetCode) + "', '" + str(datetime.datetime.now()) +"'")
+cmd = dbCommands.AddToDatabaseCommand("Snippet", "userId, language, version, title, description, code, lastChanged", "'" + str(uid) + "', '" + str(snippetLang) + "', '" + str(snippetVersion) + "', '" + str(snippetTitle) + "', '" + str(snippetDesc) + "', '" + str(snippetCode) + "', '" + str(datetime.datetime.now()) +"'")
 cmd.execute()
 
-print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py" />'
+print '<meta http-equiv="refresh" content="0;url=http://web.cs.dal.ca/~coelho/oop/snippets/view.py?uid='+uid+'"/>'
