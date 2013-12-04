@@ -3,6 +3,10 @@ Created on 2013-11-26
 
 @author: Cameron
 '''
+import os, sys, inspect
+pkg = "~/public_html/oop/codesnips"
+sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
+from codesnips.data import dbCommands 
 from Version import Version
 from Language import Language
 
@@ -23,23 +27,32 @@ class PythonLanguage(Language):
     '''    
     def versionFactory(self, versionNumber):
         if versionNumber=='1.0':
-            depFunctions = ['pyFunction1', 'pyFunction2', 'pyFunction3', 'pyFunction4']
-            newFunctions = ['pyFunction11', 'pyFunction12']
-            allFunctions = ['pyFunction11', 'pyFunction12', 'pyFunction10', 'pyFunction 9']
-            knownBugs = ['had a single week to develop code']
+            cmd = dbCommands.ReadFromDatabaseCommand('Language', "name='PYTHON' AND version='1.0'")
+            rows = cmd.execute()
+            row = rows[0]
+            depFunctions = row['depFunctions']
+            newFunctions = row['newFunctions']
+            allFunctions = row['allFunctions']
+            knownBugs = row['bugs']
             return Version(versionNumber, depFunctions, newFunctions, allFunctions, knownBugs);
         elif versionNumber == '2.0':
-            depFunctions = ['pyFunction1', 'pyFunction2', 'pyFunction3', 'pyFunction4']
-            newFunctions = ['pyFunction11', 'pyFunction12']
-            allFunctions = ['pyFunction11', 'pyFunction12', 'pyFunction10', 'pyFunction 9']
-            knownBugs = ['had a single week to develop code']
+            cmd = dbCommands.ReadFromDatabaseCommand('Language', "name='PYTHON' AND version='2.0'")
+            rows = cmd.execute()
+            row = rows[0]
+            depFunctions = row['depFunctions']
+            newFunctions = row['newFunctions']
+            allFunctions = row['allFunctions']
+            knownBugs = row['bugs']
             return Version(versionNumber, depFunctions, newFunctions, allFunctions, knownBugs);
         
         elif versionNumber == '3.0':
-            depFunctions = ['pyFunction1', 'pyFunction2', 'pyFunction3', 'pyFunction4']
-            newFunctions = ['pyFunction11', 'pyFunction12']
-            allFunctions = ['pyFunction11', 'pyFunction12', 'pyFunction10', 'pyFunction 9']
-            knownBugs = ['had a single week to develop code']
+            cmd = dbCommands.ReadFromDatabaseCommand('Language', "name='PYTHON' AND version='3.0'")
+            rows = cmd.execute()
+            row = rows[0]
+            depFunctions = row['depFunctions']
+            newFunctions = row['newFunctions']
+            allFunctions = row['allFunctions']
+            knownBugs = row['bugs']
             return Version(versionNumber, depFunctions, newFunctions, allFunctions, knownBugs);
         else:
             print 'Invalid version' 

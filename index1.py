@@ -6,10 +6,24 @@ import cgitb; cgitb.enable()
 import sqlite3
 import sys
 
+pkg = "~/public_html/oop/codesnips"
+sys.path.append(os.path.dirname(os.path.expanduser(pkg)))
+from codesnips.data import dbCommands
+
 url_args = cgi.FieldStorage()
 args = {x: url_args.getvalue(x) for x in url_args.keys()}
 
 uid = args['uid']
+
+cmd = dbCommands.ReadFromDatabaseCommand("User", "id='"+uid+"'")
+loggedInUser = cmd.execute()
+
+permissionsL = 0
+nameL = "NOUSERNAME"
+if any(loggedInUser):
+	loggedInUser = loggedInUser[0]
+	nameL = loggedInUser['name']
+
 
 
 
@@ -39,7 +53,7 @@ print "</div>"
 print "<hr />"
 
 
-print "<h2>Welcome!</h2>"
+print "<h2>Welcome, " + str(nameL) +"!</h2>"
 
 print "<p>Now enjoy CodeSnips!</p>"
 print "<p>You can view snippets, create snippet or view different languages!</p>"
