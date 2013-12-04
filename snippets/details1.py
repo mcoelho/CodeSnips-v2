@@ -48,7 +48,6 @@ if any(rows):
 	print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/index1.py?uid=" + uid + ">Home</a></li>"
 	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/view.py?uid=" + uid + ">View Snippets</a></li>"
 	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/snippets/create.py?uid=" + uid + ">Create Snippet</a></li>"
-	print "<li><a href=#>View Languages</a></li>"
 	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/logout.py>Log-out</a></li>"
 	print "</ul>" 
 	print "</div>"

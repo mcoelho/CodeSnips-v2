@@ -37,7 +37,6 @@ if any(rows):
 	print "<ul>"
 	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/index.py>Home</a></li>"
 	print "<li><a style='color:black' href=http://web.cs.dal.ca/~coelho/oop/snippets/view1.py>View Snippets</a></li>"
-	print "<li><a href=#>View Languages</a></li>"
 	print "<li><a href=http://web.cs.dal.ca/~coelho/oop/login.py>Log-in</a></li>"
 	print "</ul>" 
 	print "</div>"
